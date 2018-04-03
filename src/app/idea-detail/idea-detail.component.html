@@ -1,0 +1,20 @@
+<div class="wrap">
+  <a *ngFor="let idea of parentIdeas" class="tweet-card">
+    <p class="tweet-text">
+      {{ idea.text }}
+    </p>
+    <span class="idea-date">{{ idea.date.getFullYear() }}-{{ idea.date.getMonth()+1 }}-{{ idea.date.getDate() }}</span>
+  </a>
+  <a class="tweet-card target-idea">
+    <p class="tweet-text">
+      {{ idea.text }}
+    </p>
+    <span class="idea-date">{{ idea.date.getFullYear() }}-{{ idea.date.getMonth()+1 }}-{{ idea.date.getDate() }}</span>
+  </a>
+  <a *ngFor="let idea of mentionIdeas" class="tweet-card">
+    <p class="tweet-text">
+      {{ idea.text }}
+    </p>
+    <span class="idea-date">{{ idea.date.getFullYear() }}-{{ idea.date.getMonth()+1 }}-{{ idea.date.getDate() }}</span>
+  </a>
+</div>

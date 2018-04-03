@@ -1,0 +1,28 @@
+.wrap {
+  margin-bottom: 85px;
+
+  .tweet-card {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin-bottom: -1px;
+    border-top: 1px solid #e7ecf0;
+    border-bottom: 1px solid #e7ecf0;
+    color: #14171a;
+    line-height: 190%;
+    letter-spacing: 1.4px;
+    text-decoration: none;
+    .tweet-text {
+      padding: 35px;
+    }
+    .idea-date{
+      position: absolute;
+      bottom: 7px;
+      right: 21px;
+      color:rgba(19, 22, 26, 0.533);
+    }
+  }
+  .target-idea{
+    background: #ebeee9;
+  }
+}

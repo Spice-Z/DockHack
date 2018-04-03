@@ -1,0 +1,57 @@
+.wrap {
+  //background:#1D292D;
+  font-family: "Sawarabi Gothic";
+  margin-bottom: 85px;
+
+  .tweet-card {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin-bottom: -1px;
+    border-top: 1px solid #e7ecf0;
+    border-bottom: 1px solid #e7ecf0;
+    background: inherit;
+    color: #14171a;
+    line-height: 190%;
+    letter-spacing: 1.4px;
+    text-decoration: none;
+    //font-weight:700;
+    .tweet-text {
+      padding: 35px;
+    }
+  }
+  .mentiond{
+    &:after {
+      position: absolute;
+      bottom: 20px;
+      right: 10px;
+      display: block;
+      -ms-transform: rotate(-135deg);
+      -webkit-transform: rotate(-135deg);
+      transform: rotate(-135deg);
+      border: 0px;
+      border-top: solid 5px #e7ecf0;
+      border-right: solid 5px #e7ecf0;
+      content: '';
+      width: 10px;
+      height: 10px;
+    }
+  }
+  .mentionTo{
+    &:after {
+      position: absolute;
+      top: 20px;
+      left: 10px;
+      display: block;
+      -ms-transform: rotate(-135deg);
+      -webkit-transform: rotate(-135deg);
+      transform: rotate(-135deg);
+      border: 0px;
+      border-top: solid 5px #e7ecf0;
+      border-right: solid 5px #e7ecf0;
+      content: '';
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
