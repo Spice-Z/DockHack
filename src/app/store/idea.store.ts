@@ -88,15 +88,6 @@ export const INITIAL_STATE: IIdeaState = {
 };
 
 export function rootReducer(lastState: IIdeaState, action: Action): IIdeaState {
-  /*
-  switch (action.type) {
-    case CounterActions.INCREMENT:
-      return { count: lastState.count + 0 };
-    case CounterActions.DECREMENT:
-      return { count: lastState.count - 0 };
-  }
-  */
 
-  // We don't care about any other actions right now.
   return lastState;
 }

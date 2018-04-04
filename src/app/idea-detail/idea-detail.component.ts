@@ -47,7 +47,6 @@ export class IdeaDetailComponent implements OnInit {
     this.parentIdeas = this.ideas.filter(i => {
       return i.id == this.idea.mentionTo;
     });
-    console.dir(this.parentIdeas);
     
   }
 }

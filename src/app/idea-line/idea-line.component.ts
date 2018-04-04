@@ -24,10 +24,11 @@ export class IdeaLineComponent implements OnInit {
     this.subscription = ngRedux
       .select<Idea[]>("ideas")
       .subscribe(newIdeas => (this.ideas = newIdeas));
-    console.dir(this.ideas);
     this.shuffleIdeas();
 
-    //this.http.get('http://localhost:7000/general').subscribe(json => console.dir(json) );
+    //APIを叩けるか確認
+    console.log('api is called!');
+    this.http.get('./api/general').subscribe(json => console.dir(json) );
   }
 
   ngOnDestroy() {
