@@ -5,10 +5,10 @@ let options = {
 let pgp = require('pg-promise')(options)
 
 let connection = {
-  host: process.env.DB_DATABASE,
-  user: process.env.DB_HOST,
-  password: process.env.DB_PASS,
-  database: process.env.DB_USER_NAME,
+  host: 'ec2-54-243-63-13.compute-1.amazonaws.com',
+  user: 'unwzsfdqhpohef',
+  password: 'e95f2b0400ed20c9c6753fc26627af7db8803524c2f0c2ffa5c5ae1bed34706f',
+  database: 'd2t59hbqkikfu4',
   port: 5432,
   ssl: true
 }
