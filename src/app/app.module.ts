@@ -9,7 +9,7 @@ import { IdeaDetailComponent } from './idea-detail/idea-detail.component';
 import { NgReduxModule, NgRedux } from '@angular-redux/store';
 import { IIdeaState, rootReducer, INITIAL_STATE } from './store/idea.store';
 import { IdeaActions ,CounterActions} from './actions/app.actions';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,10 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class AppModule { 
 
-  constructor( ngRedux:NgRedux<IIdeaState> ){
+  constructor( ngRedux:NgRedux<IIdeaState>,private http: HttpClient ){
+    //APIを叩けるか確認
+    console.log('api is calledv in new');
+    this.http.get('./api/general').subscribe(json => console.dir(json) );
     ngRedux.configureStore(rootReducer,INITIAL_STATE);
   }
  }

@@ -25,10 +25,6 @@ export class IdeaLineComponent implements OnInit {
       .select<Idea[]>("ideas")
       .subscribe(newIdeas => (this.ideas = newIdeas));
     this.shuffleIdeas();
-
-    //APIを叩けるか確認
-    console.log('api is called!');
-    this.http.get('./api/general').subscribe(json => console.dir(json) );
   }
 
   ngOnDestroy() {

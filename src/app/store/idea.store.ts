@@ -88,6 +88,5 @@ export const INITIAL_STATE: IIdeaState = {
 };
 
 export function rootReducer(lastState: IIdeaState, action: Action): IIdeaState {
-
   return lastState;
 }
