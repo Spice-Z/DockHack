@@ -8,6 +8,7 @@ export interface IIdeaState {
 
 export const INITIAL_STATE: IIdeaState = {
   ideas: [
+    /*
     {
       id: 1,
       text:
@@ -84,6 +85,7 @@ export const INITIAL_STATE: IIdeaState = {
       date: new Date(),
       mentionTo: 10
     }
+    */
   ]
 };
 
