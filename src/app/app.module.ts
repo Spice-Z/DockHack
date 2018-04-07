@@ -7,7 +7,7 @@ import { AppComponent } from "./app.component";
 import { IdeaLineComponent } from "./idea-line/idea-line.component";
 import { IdeaDetailComponent } from "./idea-detail/idea-detail.component";
 import { NgReduxModule, NgRedux } from "@angular-redux/store";
-import { IIdeaState, rootReducer, INITIAL_STATE } from "./store/idea.store";
+import { IIdeaState, rootReducer } from "./store/idea.store";
 import { IdeaActions, CounterActions } from "./actions/app.actions";
 import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { log } from "util";
@@ -29,10 +29,6 @@ export class AppModule {
     console.dir(initialState.ideas);
     this.http.get("./api/general").subscribe(json => {
       apiResult.push(json);
-      console.log("apiResult");
-      console.dir(apiResult);
-      console.log("apiResult[0]");
-      console.dir(apiResult[0]);
       initialState.ideas = apiResult[0];
       console.log("initialState");
       console.dir(initialState);

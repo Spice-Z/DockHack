@@ -4,6 +4,7 @@ import { NgRedux } from "@angular-redux/store";
 import { IIdeaState } from "../store/idea.store";
 import { IdeaActions } from "../actions/app.actions";
 import { Idea } from "../idea";
+import { HttpClientModule, HttpClient } from "@angular/common/http";
 
 @Component({
   selector: "app-idea-detail",
@@ -16,17 +17,19 @@ export class IdeaDetailComponent implements OnInit {
   subscription;
   ideas: Idea[];
   idea: Idea;
-  mentionIdeas:Idea[];
-  parentIdeas:Idea[];
+  mentionIdeas: Idea[];
+  parentIdeas: Idea[];
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _router: Router,
     private ngRedux: NgRedux<IIdeaState>,
-    private actions: IdeaActions
+    private actions: IdeaActions,
+    private http: HttpClient
   ) {
     this.subscription = ngRedux
       .select<Idea[]>("ideas")
       .subscribe(newIdeas => (this.ideas = newIdeas));
+    this.mentionIdeas = [];
   }
 
   ngOnDestroy() {
@@ -41,12 +44,21 @@ export class IdeaDetailComponent implements OnInit {
     this.idea = this.ideas.find(i => {
       return i.id == this.tweetId;
     });
-    this.mentionIdeas = this.ideas.filter(i => {
-      return i.mentionTo == this.tweetId;
-    });
     this.parentIdeas = this.ideas.filter(i => {
-      return i.id == this.idea.mentionTo;
+      return i.id == this.idea.is_mentiond;
     });
-    
+    this.http.get("./api/mentiond?id=" + this.idea.id).subscribe(json => {
+      /*
+      apiResult.push(json);
+      initialState.ideas = apiResult[0];
+      console.log("initialState");
+      console.dir(initialState);
+      */
+      let ideas = json[0];
+      this.mentionIdeas.push(ideas);
+      console.log("ww");
+      console.log(json);
+      console.log(ideas);
+    });
   }
 }

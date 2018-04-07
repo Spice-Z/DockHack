@@ -5,7 +5,8 @@
   "scripts": {
     "ng": "ng",
     "postinstall": "ng build --aot -prod",
-    "start": "node server.js"
+    "start": "node server.js",
+    "bstart":"ng build --aot -prod &&node server.js"
   },
   "engines": {
     "node": "9.1.0",

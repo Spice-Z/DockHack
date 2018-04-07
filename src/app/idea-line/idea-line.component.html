@@ -1,7 +1,7 @@
 <div class="wrap">
   <a *ngFor="let idea of ideas" class="tweet-card" [routerLink]="['/IDetail']" [queryParams]="{ tweetId: idea.id }">
-    <span *ngIf="idea.mentionTo > 0" class="mentionTo"></span>
-    <span *ngIf="isMentiondById(idea.id)" class="mentiond"></span>
+    <span *ngIf="idea.is_mention_to" class="mentionTo"></span>
+    <span *ngIf="idea.is_mentiond" class="mentiond"></span>
     <p class="tweet-text">
       {{ idea.idea_text }}
     </p>

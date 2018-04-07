@@ -42,9 +42,4 @@ export class IdeaLineComponent implements OnInit {
     }
   }
 
-  public isMentiondById(id: number) {
-    return this.ideas.some(i => {
-      return i.mentionTo == id;
-    });
-  }
 }

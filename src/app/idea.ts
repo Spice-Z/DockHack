@@ -2,6 +2,6 @@ export interface Idea {
   id:number;
   idea_text:String;
   date:Date;
-  mentionFrom:number;
-  mentionTo:number;
+  is_mention_to:number;
+  is_mentiond:number;
 }
