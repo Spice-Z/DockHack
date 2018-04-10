@@ -3,7 +3,7 @@ import { Idea } from "../idea";
 
 import { NgRedux } from "@angular-redux/store";
 import { IIdeaState } from "../store/idea.store";
-import { IdeaActions } from "../actions/app.actions";
+import { docksActions } from "../actions/app.actions";
 import { HttpClient } from '@angular/common/http';
 import { log } from "util";
 
@@ -18,7 +18,7 @@ export class IdeaLineComponent implements OnInit {
 
   constructor(
     private ngRedux: NgRedux<IIdeaState>,
-    private actions: IdeaActions,
+    private actions: docksActions,
     private http: HttpClient
   ) {
     this.subscription = ngRedux

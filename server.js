@@ -2,6 +2,10 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const db = require("./pg-setting.js");
+const bodyParser = require("body-parser");
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // For all GET requests, send back index.html
 // so that PathLocationStrategy can be used
@@ -46,4 +50,56 @@ app.get("/api/mentiond", function(req, res, next) {
     .catch(function(error) {
       console.log(error);
     });
+});
+
+app.get("/api/getParentById", function(req, res, next) {
+  let mainId = req.query.id;
+  db
+    .any(
+      `SELECT id,idea_text,date FROM ideas 
+      WHERE id = (SELECT mentiond_id FROM idea_relations WHERE mention_from_id = $1 LIMIT 1 OFFSET 0) `,
+      [mainId]
+    )
+    .then(function(data) {
+      res.json(data);
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+});
+
+app.post("/api/tweetNewIdea", function(req, res) {
+  let newId = "";
+  let mentionToId = req.body[0].mentionTo;
+  console.log(req.body);
+  db
+    .one("INSERT INTO ideas(idea_text, date) VALUES($1, now() ) RETURNING id", [
+      req.body[0].ideaText
+    ])
+    .then(data => {
+      console.log("new idea is born!");
+      newId = data.id;
+    })
+    .catch(error => {
+      console.log("ERROR:", error);
+    });
+
+  if (!mentionToId || mentionToId == 0) {
+    res.json(req.body);
+    return;
+  }
+  setTimeout(() => {
+    db
+      .none(
+        "INSERT INTO idea_relations(mention_from_id, mentiond_id) VALUES($1, $2 )",
+        [newId, mentionToId]
+      )
+      .then(() => {
+        console.log("insert is success");
+        res.json(req.body);
+      })
+      .catch(error => {
+        console.log("ERROR:", error);
+      });
+  }, 3000);
 });

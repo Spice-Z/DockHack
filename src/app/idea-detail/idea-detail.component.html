@@ -1,9 +1,9 @@
 <div class="wrap">
-  <a *ngFor="let idea of parentIdeas" class="tweet-card">
+  <a *ngIf="parentIdea" class="tweet-card">
     <p class="tweet-text">
-      {{ idea.idea_text }}
+      {{ parentIdea.idea_text }}
     </p>
-    <span class="idea-date">{{ idea.date }}</span>
+    <span class="idea-date">{{ parentIdea.date }}</span>
   </a>
   <a class="tweet-card target-idea">
     <p class="tweet-text">
@@ -12,9 +12,9 @@
     <span class="idea-date">{{ idea.date }}</span>
   </a>
   <a *ngFor="let idea of mentionIdeas" class="tweet-card">
-    <p class="tweet-text">
+    <p *ngIf="idea" class="tweet-text">
       {{ idea.idea_text }}
     </p>
-    <span class="idea-date">{{ idea.date }}</span>
+    <span *ngIf="idea" class="idea-date">{{ idea.date }}</span>
   </a>
 </div>

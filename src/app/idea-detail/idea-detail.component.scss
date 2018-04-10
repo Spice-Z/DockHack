@@ -15,14 +15,15 @@
     .tweet-text {
       padding: 35px;
     }
-    .idea-date{
+    .idea-date {
       position: absolute;
-      bottom: 7px;
+      bottom: 14px;
+      font-size: 10px;
       right: 21px;
-      color:rgba(19, 22, 26, 0.533);
+      color: rgba(19, 22, 26, 0.533);
     }
   }
-  .target-idea{
+  .target-idea {
     background: #ebeee9;
   }
 }

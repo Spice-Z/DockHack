@@ -1,8 +1,8 @@
 let options = {
   // initialization options;
-}
+};
 
-let pgp = require('pg-promise')(options)
+let pgp = require("pg-promise")(options);
 
 let connection = {
   host: process.env.DB_HOST,
@@ -11,8 +11,8 @@ let connection = {
   database: process.env.DB_DATABASE,
   port: 5432,
   ssl: true
-}
+};
 
-let db = pgp(connection)
+let db = pgp(connection);
 
-module.exports = db
+module.exports = db;

@@ -1,0 +1,7 @@
+<div class="tweet-form-wrap" [ngClass]="{ 'is-show-teet-form' : isShowTweetForm }">
+  <p>I Think ...</p>
+  <textarea class="tweet-form" [value]="ideaText" (input)="ideaText = $event.target.value"></textarea>
+  <button class="tweet-button" (click)="tweetIdea(ideaText)">Tweet</button>
+</div>
+<div class="tweeting" [ngClass]="{ 'is-on-teet-form' : isShowTweetForm }" ontouchstart="" (click)="tweetClick()">
+</div>
