@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
 
 ## 環境構築
-1. ```yarn ```コマンドを実行
+1. ```yarn ```もしくは```yarn --ignore-engines```コマンドを実行
 2. ```ng build --aot -prod```でビルド
 3. ```yarn run start```でサーバ始動
 4. localhost:8080にアクセス。これで動く（と信じたい）
