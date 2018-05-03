@@ -32,9 +32,9 @@ app.listen(process.env.PORT || 8080);
 app.get("/api/general", function(req, res, next) {
   db
     .any(
-      `select id,idea_text,date, mention_from_id.mentiond_id as is_mention_to, mentiond_id as is_mentiond from ideas 
-  LEFT JOIN ( select mention_from_id , mentiond_id from idea_relations ) as mention_from_id ON id = mention_from_id.mention_from_id 
-  LEFT JOIN ( select mentiond_id from idea_relations ) as mentiond_id ON id = mentiond_id`
+      `select id,idea_text,date, mention_from_id.mentiond_id as is_mention_to, mentiond_id.mention_from_id as is_mentiond from ideas 
+      LEFT JOIN ( select mention_from_id , mentiond_id from idea_relations ) as mention_from_id ON id = mention_from_id.mention_from_id 
+      LEFT JOIN ( select mentiond_id , mention_from_id from idea_relations ) as mentiond_id ON id = mentiond_id.mentiond_id`
     )
     .then(function(data) {
       res.json(data);
