@@ -129,17 +129,3 @@ app.post("/api/deleteIdea", function(req, res) {
       console.log("ERROR:", error);
     });
 });
-
-app.post("/api/cordova", function(req, res) {
-  const date;
-  db
-    .one("INSERT INTO cordova(id, date) VALUES($1, now() ) RETURNING date", [
-      req.body[0].id
-    ])
-    .then(data => {
-      date = data.date;
-    })
-    .catch(error => {
-      console.log("ERROR:", error);
-    })
-});
