@@ -131,7 +131,11 @@ app.post("/api/deleteIdea", function(req, res) {
 });
 
 app.post("/api/cordova", function(req, res) {
+  console.log('cordova');
+  
+  console.log(req);
   console.log(req.body);
+  console.log(req.body[0]);
   
   let cordovaDate;
   db
