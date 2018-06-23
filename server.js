@@ -131,6 +131,8 @@ app.post("/api/deleteIdea", function(req, res) {
 });
 
 app.post("/api/cordova", function(req, res) {
+  console.log(req.body);
+  
   let cordovaDate;
   db
     .one("INSERT INTO cordova(id, date) VALUES($1, now() ) RETURNING date", [
